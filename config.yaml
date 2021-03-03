@@ -1,0 +1,23 @@
+module:
+  hugoVersion:
+    min: "0.61.0"
+  mounts:
+    - source: layouts
+      target: layouts
+    - source: partials
+      target: layouts/partials/nginx-redirects
+    - source: console
+      target: layouts/partials/nginx-redirects
+
+mediaTypes:
+  text/nginx_redirects:
+    delimiter: ''
+    suffixes:
+      - ''
+
+outputFormats:
+  nginx_redirects:
+    baseName: _redirects.txt
+    isPlainText: true
+    mediatype: text/nginx_redirects
+    notAlternative: true
