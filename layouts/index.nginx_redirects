@@ -7,6 +7,7 @@
 {{- end -}}
 ###########################################
 # Nginx redirects.
+# Build at
 #
 # Format this file:
 #
@@ -24,8 +25,9 @@
 
 {{ range $p := .Site.Pages -}}
 {{   range  .Aliases -}}
-{{     if ne .  $p.RelPermalink -}}
-  {{- $basePath -}} {{ . |   printf "%-60s" }}	{{ $p.RelPermalink   -}};
+{{ $fromUrl := $basePath + . }}
+{{     if ne $fromUrl  $p.RelPermalink -}}
+  {{ $fromUrl |   printf "%-60s" }}	{{ $p.RelPermalink   -}};
 {{     end -}}
 {{     end -}}
 {{     end -}}
