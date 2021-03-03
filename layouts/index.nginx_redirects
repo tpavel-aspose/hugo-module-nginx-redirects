@@ -25,7 +25,8 @@
 
 {{ range $p := .Site.Pages -}}
 {{   range  .Aliases -}}
-{{ $fromUrl := $basePath + . }}
+{{ $fromUrl :=  . }}
+{{ $fromUrl = $basePath + $fromUrl }}
 {{     if ne $fromUrl  $p.RelPermalink -}}
   {{ $fromUrl |   printf "%-60s" }}	{{ $p.RelPermalink   -}};
 {{     end -}}
