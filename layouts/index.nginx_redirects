@@ -27,7 +27,7 @@
 {{   range  .Aliases -}}
 {{      $fromUrl := (printf "%v%v" $basePath  .) -}}
 {{     if ne $fromUrl  $p.RelPermalink -}}
-{{       $fromUrl |   printf "%-60s" }}	{{ $p.RelPermalink   -}};
+{{       $fromUrl | replaceRE "/.*/display" "/display" |replaceRE "^.*///" "/"  |  printf "%-60s" }}	{{ $p.RelPermalink   -}};
 {{     end -}}
 {{   end -}}
 {{ end -}}
